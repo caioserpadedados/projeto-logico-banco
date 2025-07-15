@@ -67,4 +67,30 @@ INSERT INTO Entrega VALUES (2, 2, 'Processando', NULL);
 
 INSERT INTO Pedido_Produto VALUES (1, 1, 2, 150.00);
 INSERT INTO Pedido_Produto VALUES (1, 2, 1, 300.00);
-INSERT INTO Pedido_Produto VALUES (2, 2, 1, 300.00);
+INSERT INTO Pedido_Produto VALUES (2, 2, 1, 300.00); 
+
+-- Recuperações simples com SELECT Statement
+SELECT * FROM Cliente;
+
+-- Filtros com WHERE Statement
+SELECT * FROM Produto WHERE preco > 200;
+
+-- Criação de expressões para atributos derivados
+SELECT nome, preco, estoque, (preco * estoque) AS valor_total_estoque FROM Produto;
+
+-- Ordenações dos dados com ORDER BY
+SELECT * FROM Cliente ORDER BY nome;
+
+-- Agrupamentos com HAVING
+SELECT id_cliente, COUNT(*) AS total_pedidos
+FROM Pedido
+GROUP BY id_cliente
+HAVING COUNT(*) > 1;
+
+-- Junções entre tabelas
+SELECT p.id_pedido, c.nome AS cliente, pr.nome AS produto, pp.quantidade, pp.preco_unitario
+FROM Pedido p
+JOIN Cliente c ON p.id_cliente = c.id_cliente
+JOIN Pedido_Produto pp ON p.id_pedido = pp.id_pedido
+JOIN Produto pr ON pp.id_produto = pr.id_produto;
+
