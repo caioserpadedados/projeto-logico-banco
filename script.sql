@@ -47,3 +47,24 @@ CREATE TABLE Pedido_Produto (
     FOREIGN KEY (id_pedido) REFERENCES Pedido(id_pedido),
     FOREIGN KEY (id_produto) REFERENCES Produto(id_produto)
 );
+
+-- Inserção de dados fictícios
+
+INSERT INTO Cliente VALUES (1, 'João Silva', 'PF', '123.456.789-00');
+INSERT INTO Cliente VALUES (2, 'Empresa XPTO', 'PJ', '12.345.678/0001-99');
+
+INSERT INTO Produto VALUES (1, 'Mouse Gamer', 150.00, 30);
+INSERT INTO Produto VALUES (2, 'Teclado Mecânico', 300.00, 15);
+
+INSERT INTO Pedido VALUES (1, 1, '2025-07-15', 450.00);
+INSERT INTO Pedido VALUES (2, 2, '2025-07-14', 300.00);
+
+INSERT INTO Pagamento VALUES (1, 1, 'Cartão de Crédito', 'Pago');
+INSERT INTO Pagamento VALUES (2, 2, 'Boleto', 'Aguardando');
+
+INSERT INTO Entrega VALUES (1, 1, 'Em trânsito', 'BR123456789XYZ');
+INSERT INTO Entrega VALUES (2, 2, 'Processando', NULL);
+
+INSERT INTO Pedido_Produto VALUES (1, 1, 2, 150.00);
+INSERT INTO Pedido_Produto VALUES (1, 2, 1, 300.00);
+INSERT INTO Pedido_Produto VALUES (2, 2, 1, 300.00);
